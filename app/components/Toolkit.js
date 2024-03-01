@@ -67,7 +67,7 @@ const Toolkit = () => {
                                         <h4 className="text-lg text-black font-semibold hover:text-indigo-600 cursor-pointer">
                                             {item.title}
                                         </h4>
-                                        <p className="mt-3 text-md font-semibold">
+                                        <p className="mt-3 text-md">
                                             {item.description}
                                         </p>
                                     </div>
