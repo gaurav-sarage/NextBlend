@@ -4,9 +4,9 @@ import React from "react";
 const Hero = () => {
     return (
         <section>
-            <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
+            <div className="max-w-screen-xl mx-auto px-4 py-24 gap-12 text-gray-600 md:px-8">
                 <div className="space-y-5 max-w-4xl mx-auto text-center">
-                    <h1 className="text-lg text-indigo-600 font-medium">
+                    <h1 className="text-lg text-indigo-600 font-medium uppercase">
                         Build products for everyone
                     </h1>
                     <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
