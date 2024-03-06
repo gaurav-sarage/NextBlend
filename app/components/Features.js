@@ -1,15 +1,15 @@
 const Features = () => {
     return (
         <>
-            <section className="py-6">
+            <section className="py-16">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="max-w-xl mx-auto text-center">
                         <p className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
                             100+ Handcoded Components
                         </p>
-                        <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-4xl">
-                            NextBlend helps you build websites quick 🚀
-                        </h2>
+                        <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
+                        NextBlend helps you build <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">websites quick </span> 🚀
+                    </h2>
                     </div>
 
                     <div className="grid items-center grid-cols-1 mt-12 gap-y-10 lg:grid-cols-5 sm:mt-20 gap-x-4">
