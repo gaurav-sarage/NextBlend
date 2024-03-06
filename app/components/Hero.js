@@ -10,12 +10,10 @@ const Hero = () => {
                         Build products for everyone
                     </h1>
                     <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
-                        Streamline your frontend projects with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">our vast free UI toolkit</span>
+                    Accelerate frontend development using our comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">selection of free UI components.</span>
                     </h2>
-                    <p className="max-w-2xl text-lg mx-auto">
-                        Boost productivity with sleek UI components, responsive website templates, all free and open-source.
-                    </p>
-                    <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+
+                    <div className="items-center py-4 justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
                         <Link href="/components" className="block py-2 px-4 text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none">
                             Browse Components
                         </Link>

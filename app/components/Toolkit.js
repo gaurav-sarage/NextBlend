@@ -43,14 +43,12 @@ const Toolkit = () => {
 
     return (
         <SectionWrapper>
-            <div id="toolkit" className="max-w-screen-xl mx-auto px-4 text-black md:px-8">
+            <div id="toolkit" className="max-w-screen-xl mx-auto py-16 px-4 text-black md:px-8">
                 <div className="max-w-2xl mx-auto space-y-3 sm:text-center">
-                    <h2 className="text-black text-4xl font-extrabold sm:text-4xl">
-                        Work with the best toolkit
+                    <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
+                    Elevate your work with the best{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">toolkit for the job. </span>
                     </h2>
-                    <p className="text-md font-semibold">
-                        These are a few of our favourite things
-                    </p>
                 </div>
                 <div className="mt-12">
                     <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">

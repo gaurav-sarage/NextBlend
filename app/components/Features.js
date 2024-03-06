@@ -4,10 +4,10 @@ const Features = () => {
             <section className="py-16">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="max-w-xl mx-auto text-center">
-                        <p className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
+                        <h1 className="text-lg text-indigo-600 font-medium uppercase">
                             100+ Handcoded Components
-                        </p>
-                        <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
+                        </h1>
+                        <h2 className="text-4xl py-6 text-gray-800 font-extrabold mx-auto md:text-5xl">
                         NextBlend helps you build <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">websites quick </span> 🚀
                     </h2>
                     </div>
