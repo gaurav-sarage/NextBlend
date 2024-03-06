@@ -1,4 +1,4 @@
-const { default: Link } = require("next/link")
+import Link from "next/link";
 
 const CallToAction = () => {
     return (
