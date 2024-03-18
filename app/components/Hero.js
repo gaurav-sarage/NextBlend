@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <>
             <div className="overflow-x-hidden">
-                <section className="mt-6 sm:pt-12">
+                <section className="mt-6 mb-6 sm:mb-12 sm:pt-12">
                     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div className="max-w-2xl mx-auto text-center">
                             <Link href="/" class="inline-flex justify-between items-center px-1 pr-4 mb-2 text-sm text-black rounded-full" role="alert">

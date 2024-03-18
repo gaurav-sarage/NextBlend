@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CallToAction = () => {
     return (
-        <section className="py-16">
+        <section className="mt-16">
             <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
                 <div className="max-w-xl md:mx-auto">
                     <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
