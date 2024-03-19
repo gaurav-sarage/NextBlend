@@ -7,7 +7,7 @@ const Navbar = () => {
     const [toggle, setToggle] = useState(false);
 
     const navItems = [
-        { title: "About", href: "/about" },
+        { title: "How It Works", href: "/how-it-works" },
         { title: "Components", href: "/components" },
         { title: "Docs", href: "/docs" },
         { title: "Changelog", href: "/changelog" }
