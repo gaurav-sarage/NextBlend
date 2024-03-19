@@ -10,6 +10,7 @@ const Navbar = () => {
         { title: "About", href: "/about" },
         { title: "Components", href: "/components" },
         { title: "Docs", href: "/docs" },
+        { title: "Changelog", href: "/changelog" }
     ];
 
     useEffect(() => {
