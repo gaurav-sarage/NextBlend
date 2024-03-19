@@ -5,12 +5,9 @@ const CTA = () => {
         <div className="mx-auto max-w-7xl px-2 py-10 lg:px-0">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                 <div className="w-full md:w-1/2">
-                    <h2 className="text-3xl font-bold text-black px-10">
-                        Get updates straight to your inbox
+                    <h2 className="text-4xl font-bold text-black px-10">
+                        Get updates from NextBlend straight <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">into your inbox. </span>
                     </h2>
-                    <p className="mt-2 text-black hover:text-indigo-600 px-16">
-                        Lorem ipsem dolor sit amet, consectur adipiscing elit.
-                    </p>
                 </div>
                 <div className="mt-10 w-full md:w-1/2 lg:mt-0">
                     <form className="flex px-12 lg:justify-center">
@@ -18,6 +15,7 @@ const CTA = () => {
                             <input
                                 className="flex h-10 w-full rounded-lg border border-black/30 bg-transparent px-3 py-3 text-sm placeholder:text-black"
                                 type="email"
+                                required
                                 placeholder="Enter your email"
                             ></input>
                             <button
