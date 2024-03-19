@@ -24,7 +24,7 @@ const Hero = () => {
                             <div className="px-8 sm:items-center sm:justify-center sm:px-0 sm:space-x-5 sm:flex mt-9">
                                 <Link
                                     href="/components"
-                                    className="inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent sm:w-auto rounded-full hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                    className="inline-flex items-center justify-center w-full px-6 py-3 mt-4 text-lg duration-200 border-2 sm:w-auto sm:mt-0 rounded-full focus:outline-none hover:text-white focus:text-white animate-shine bg-indigo-600 font-medium hover:bg-black text-white"
                                     role="button"
                                 >
                                     Browse Components
@@ -32,7 +32,7 @@ const Hero = () => {
 
                                 <Link
                                     href="/custom-components"
-                                    className="inline-flex items-center justify-center w-full px-6 py-3 mt-4 text-lg font-bold text-gray-900 transition-all duration-200 border-2 sm:w-auto sm:mt-0 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-indigo-600 focus:bg-indigo-900 hover:text-white focus:text-white"
+                                    className="inline-flex items-center justify-center w-full px-6 py-3 mt-4 text-lg duration-200 border-2 sm:w-auto sm:mt-0 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 hover:text-white focus:text-white animate-shine bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-white transition-colors"
                                 >
                                     Custom Components
                                 </Link>
