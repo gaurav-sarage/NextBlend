@@ -1,3 +1,4 @@
+import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 const ComponentPage = () => {
     return (
@@ -8,6 +9,7 @@ const ComponentPage = () => {
                 Hello from the Component page
             </p>
         </div>
+        <Footer />
         </>
     )
 };

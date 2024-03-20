@@ -1,3 +1,4 @@
+import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 
 const HowitWorksPage = () => {
@@ -52,7 +53,7 @@ const HowitWorksPage = () => {
                     </div>
                 </div>
             </section>
-
+            <Footer />
         </>
     )
 };
