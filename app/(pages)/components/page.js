@@ -1,17 +1,14 @@
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
+import Sidebar from "@/app/components/Sidebar";
 const ComponentPage = () => {
+
     return (
         <>
-        <Navbar />
-        <div>
-            <p className="text-center">
-                Hello from the Component page
-            </p>
-        </div>
-        <Footer />
+            <Navbar />
+            <Sidebar />
         </>
-    )
+    );
 };
 
 export default ComponentPage;
