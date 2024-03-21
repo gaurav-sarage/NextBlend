@@ -84,7 +84,11 @@ const Sidebar = () => {
             { name: "Contact Sections", href: "/components/contact-sections" }, { name: "Footers", href: "/components/footers" },
             { name: "Logo Grid", href: "/components/logo-grid" },
             { name: "Hero Sections", href: "/components/heroes" },
-            { name: "Feature Sections", href: "/components/feature-sections" }
+            { name: "Feature Sections", href: "/components/feature-sections" },
+            { name: "Pricing Sections", href: "/components/pricing-sections" },
+            { name: "Testimonials", href: "/components/testimonials" },
+            { name: "Stats", href: "/components/stats" },
+            { name: "Newsletter Sections", href: "/components/newsletter-sections" },
         ],
 
         applicationUIComponent: [
@@ -96,6 +100,12 @@ const Sidebar = () => {
             { name: "Section Headers", href: "/components/section-headers" },
             { name: "Buttons", href: "/components/buttons" },
             { name: "Navbars", href: "/components/navbars" },
+            { name: "Select Menus", href: "/components/select-menus" },
+            { name: "Modals", href: "/components/modals" },
+            { name: "Avatars", href: "/components/avatars" },
+            { name: "Authentication", href: "/components/auth" },
+            { name: "Radio Groups", href: "/components/radio-groups" },
+            { name: "Context Menu", href: "/components/context-menu" },
         ],
     };
 

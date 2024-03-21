@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navbar from '@/app/components/Navbar';
 import Sidebar from '@/app/components/Sidebar';
 import React, { useState } from 'react';
+import Footer from '@/app/components/Footer';
 
 
 const ComponentPage = () => {
@@ -19,7 +20,7 @@ const ComponentPage = () => {
                         <span className="text-transparent font-semibold text-md bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">using Next.js & Tailwind</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-6 lg:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-6 mt-6 lg:mt-10 lg:gap-6 lg:grid-cols-3">
                         <div className="relative group">
                             <div className="overflow-hidden aspect-w-1 aspect-h-1">
                                 <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="" />
@@ -227,6 +228,7 @@ const ComponentPage = () => {
                 </div>
             </section>
             <Sidebar />
+            <Footer />
         </>
     );
 };
