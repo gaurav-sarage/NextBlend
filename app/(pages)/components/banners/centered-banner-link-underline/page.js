@@ -8,7 +8,7 @@ import Sidebar from "@/app/components/Sidebar";
 
 import { HiClipboardCopy, HiEye, HiEyeOff } from "react-icons/hi";
 
-const CenteredBannerComponent = () => {
+const CenteredBannerLinkUnderlineComponent = () => {
     const [showCode, setShowCode] = useState(false);
 
     const toggleCode = () => {
@@ -57,7 +57,7 @@ const CenteredBannerComponent = () => {
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-2xl">
                     <div className="max-w-md mx-auto text-center">
                         <h2 className="text-black text-3xl font-semibold sm:text-4xl bg-gradient-to-r from-indigo-600 from-10% via-red-500 via-100% to-violet-600 to-100% inline-block text-transparent bg-clip-text mb-2 sm:mb-4">
-                            Centered Banner
+                            Centered Banner with Underline Link
                         </h2>
                     </div>
 
@@ -130,4 +130,4 @@ export default Banner;`}
     );
 };
 
-export default CenteredBannerComponent;
+export default CenteredBannerLinkUnderlineComponent;

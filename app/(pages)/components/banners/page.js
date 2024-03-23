@@ -20,13 +20,13 @@ const ListBannerComponents = () => {
                         {/* Centered Banner */}
                         <div className="relative group">
                             <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <Link href="/components/banners/centered-banner">
+                                <Link href="/components/banners/centered-banner-link-underline">
                                     <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="Banner Centered Image" />
                                 </Link>
                             </div>
                             <div className="absolute left-0 right-0 bottom-0 top-auto bg-gradient-to-t from-transparent to-black text-white text-center p-2">
                                 <h3 className="text-xs font-bold hover:text-indigo-600 sm:text-sm md:text-base cursor-pointer">
-                                    Centered Banner
+                                    Centered Banner with Underline Link
                                 </h3>
                             </div>
                             <div className="absolute left-3 top-3">
@@ -36,33 +36,6 @@ const ListBannerComponents = () => {
                             </div>
                         </div>
 
-                        {/* Centered Banner with Link */}
-                        <div className="relative group">
-                            <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <Link href="/components/banners/centered-banner-link">
-                                    <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="Banner Centered with Link Image" />
-                                </Link>
-                            </div>
-                            <div className="absolute left-0 right-0 bottom-0 top-auto bg-gradient-to-t from-transparent to-black text-white text-center p-2">
-                                <h3 className="text-xs font-bold hover:text-indigo-600 sm:text-sm md:text-base cursor-pointer">
-                                    Centered Banner with Link
-                                </h3>
-                            </div>
-                        </div>
-
-                        {/* Banner with Link */}
-                        <div className="relative group">
-                            <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <Link href="/components/banners/banner-link">
-                                    <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="Banner with Link Image" />
-                                </Link>
-                            </div>
-                            <div className="absolute left-0 right-0 bottom-0 top-auto bg-gradient-to-t from-transparent to-black text-white text-center p-2">
-                                <h3 className="text-xs font-bold hover:text-indigo-600 sm:text-sm md:text-base cursor-pointer">
-                                    Banner with Link
-                                </h3>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
