@@ -94,7 +94,7 @@ const PricingPage = () => {
                                         </p>
                                         <Link href="/stripe-checkout">
                                             <button className="px-3 py-3 mt-2 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700">
-                                                Get Started
+                                                Yet to integrate payment gateway
                                             </button>
                                         </Link>
                                     </div>
