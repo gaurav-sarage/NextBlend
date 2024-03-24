@@ -1,12 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 import Sidebar from "@/app/components/Sidebar";
 
-import { HiClipboardCopy, HiEye, HiEyeOff } from "react-icons/hi";
+import {
+    HiClipboardCopy,
+    HiEye,
+    HiEyeOff,
+    HiArrowLeft,
+    HiArrowRight,
+} from "react-icons/hi";
 
 const CenteredBannerLinkUnderlineComponent = () => {
     const [showCode, setShowCode] = useState(false);
@@ -57,7 +64,7 @@ const CenteredBannerLinkUnderlineComponent = () => {
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-2xl">
                     <div className="max-w-md mx-auto text-center">
                         <h2 className="text-black text-3xl font-semibold sm:text-4xl bg-gradient-to-r from-indigo-600 from-10% via-red-500 via-100% to-violet-600 to-100% inline-block text-transparent bg-clip-text mb-2 sm:mb-4">
-                            Centered Banner with Underline
+                            Centered Banner with Link Underline
                         </h2>
                     </div>
 
@@ -127,6 +134,20 @@ const CenteredBannerLinkUnderlineComponent = () => {
                                 </pre>
                             </div>
                         )}
+                    </div>
+
+                    {/* Previous & Next Page Buttons */}
+                    <div className="flex justify-between mt-8">
+                        <Link href="/components/banners">
+                            <h1 className="flex items-center px-4 py-2 bg-black hover:bg-indigo-600 text-white rounded-lg transition duration-300 focus:outline-none">
+                                <HiArrowLeft className="w-5 h-5 mr-1" /> Previous
+                            </h1>
+                        </Link>
+                        <Link href="/components/banners/centered-banner-badge">
+                            <h1 className="flex items-center px-4 py-2 bg-black hover:bg-indigo-600 text-white rounded-lg transition duration-300 focus:outline-none">
+                                Next <HiArrowRight className="w-5 h-5 ml-1" />
+                            </h1>
+                        </Link>
                     </div>
                 </div>
             </section>
