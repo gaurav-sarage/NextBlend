@@ -19,16 +19,16 @@ const CenteredBannerLinkUnderlineComponent = () => {
         navigator.clipboard.writeText(`import Link from "next/link";
         const Banner = () => {
             return (
-                <div className="bg-indigo-600">
+                <div className="bg-gradient-to-r from-indigo-600 from-10% via-red-500 via-100% to-violet-600 to-100%">
                     <div className="max-w-screen-xl mx-auto px-4 py-3
                         text-white sm:text-center md:px-8">
                         <p className="font-medium">
-                        We just launched a new version of our library!
-                        <Link href="" className="font-semibold underline
+                        We just launched NextBlend!{" "}
+                        <Link href="/" className="font-semibold underline
                             duration-150 hover:text-indigo-100
                             inline-flex items-center gap-x-1"
                         >
-                            Learn more
+                            Check out now
                             <svg xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20" fill="currentColor"
                             className="w-5 h-5">
@@ -57,14 +57,14 @@ const CenteredBannerLinkUnderlineComponent = () => {
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-2xl">
                     <div className="max-w-md mx-auto text-center">
                         <h2 className="text-black text-3xl font-semibold sm:text-4xl bg-gradient-to-r from-indigo-600 from-10% via-red-500 via-100% to-violet-600 to-100% inline-block text-transparent bg-clip-text mb-2 sm:mb-4">
-                            Centered Banner with Underline Link
+                            Centered Banner with Underline
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6 mt-3 mg:mt-6 lg:gap-6 lg:grid-cols-1">
+                    <div className="grid grid-cols-1 gap-6 mt-3 md:mt-6 lg:gap-6 lg:grid-cols-1">
                         <div className="relative group">
                             <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <img className="object-cover w-full h-full transition-all duration-200" src="/banners/centered-banner.png" alt="Centered Banner Image" />
+                                <img className="object-cover w-full h-full transition-all duration-200" src="/banners/centered-banner-link-underline.png" alt="Centered Banner with Underline Link Image" />
                             </div>
                         </div>
                     </div>
@@ -87,36 +87,43 @@ const CenteredBannerLinkUnderlineComponent = () => {
                                     {`import Link from "next/link";
     const Banner = () => {
     return (
-        <div className="bg-indigo-600">
+        <div className="bg-indigo-600 bg-gradient-to-r
+        from-indigo-600 from-10% via-red-500 via-100%
+        to-violet-600 to-100%">
             <div className="max-w-screen-xl mx-auto px-4 py-3
-                text-white sm:text-center md:px-8">
+            text-white sm:text-center md:px-8">
                 <p className="font-medium">
-                We just launched a new version of our library!
-                <Link href="" className="font-semibold underline
-                    duration-150 hover:text-indigo-100
-                    inline-flex items-center gap-x-1"
-                >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20" fill="currentColor"
-                    className="w-5 h-5">
-                        <path
-                            fillRule="evenodd" d="M5 10a.75.75
-                            0 01.75-.75h6.638L10.23 7.29a.75.75 0
-                            111.04-1.08l3.5 3.25a.75.75 0 010
-                            1.08l-3.5 3.25a.75.75 0
-                            11-1.04-1.08l2.158-1.96H5.75A.75.75 0
-                            015 10z" clipRule="evenodd" 
-                        />
+                    We just launched NextBlend!{" "}
+                    <Link
+                        href="/"
+                        className="font-semibold underline
+                        duration-150 hover:text-indigo-100
+                        inline-flex items-center gap-x-1"
+                    >
+                        Check out now
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor"
+                        className="w-5 h-5">
+                            <path
+                                fillRule="evenodd"
+                                d="M5 10a.75.75
+                                0 01.75-.75h6.638L10.23
+                                7.29a.75.75 0
+                                111.04-1.08l3.5
+                                3.25a.75.75 0 010
+                                1.08l-3.5 3.25a.75.75 0
+                                11-1.04-1.08l2.158-1.96H5.
+                                75A.75.75
+                                0 015 10z" clipRule="evenodd"
+                            />
                         </svg>
                     </Link>
                 </p>
             </div>
         </div>
-    )
-};
-
-export default Banner;`}
+        )
+    };
+    export default Banner;`}
                                 </pre>
                             </div>
                         )}
