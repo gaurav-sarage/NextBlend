@@ -18,42 +18,58 @@ const ListBannerComponents = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6 mt-6 lg:mt-10 lg:gap-6 lg:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-6 mt-6 lg:mt-10 lg:gap-6 lg:grid-cols-2">
                         {/* Centered Banner with Underline Link*/}
                         <div className="relative group">
                             <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <Link href="/components/banners/centered-banner-link-underline">
-                                    <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="Banner Centered with Underline Link Image" />
-                                </Link>
+                                <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/banners/centered-banner-link-underline.png" alt="Centered Banner with Underline Link Image" />
                             </div>
-                            <div className="absolute left-0 right-0 bottom-0 top-auto bg-gradient-to-t from-transparent to-black text-white text-center p-2">
-                                <h3 className="text-xs font-bold hover:text-indigo-600 sm:text-sm md:text-base cursor-pointer">
-                                    Centered Banner with Underline Link
-                                </h3>
-                            </div>
-                            <div className="absolute left-3 top-3">
-                                <p className="sm:px-3 sm:py-1.5 px-1.5 py-1 text-[8px] sm:text-xs font-bold tracking-wide text-white uppercase bg-gray-900 rounded-full">
-                                    Newly Launched
-                                </p>
+                            <div className="flex items-start justify-between mt-4 space-x-4">
+                                <div>
+                                    <h3 className="text-xs font-bold text-black hover:text-indigo-600 sm:text-sm md:text-base">
+                                        <Link href="/components/banners/centered-banner-link-underline">
+                                            Centered Banner with Link Underline
+                                            <span className="absolute inset-0" aria-hidden="true"></span>
+                                        </Link>
+                                    </h3>
+
+                                </div>
                             </div>
                         </div>
 
                         {/* Centered Banner with Badge */}
                         <div className="relative group">
                             <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                                <Link href="/components/banners/centered-banner-badge">
-                                    <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/tabs.png" alt="Banner Centered with Badge Image" />
-                                </Link>
+                                <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/banners/centered-banner-badge.png" alt="Centered Banner with Badge Image" />
                             </div>
-                            <div className="absolute left-0 right-0 bottom-0 top-auto bg-gradient-to-t from-transparent to-black text-white text-center p-2">
-                                <h3 className="text-xs font-bold hover:text-indigo-600 sm:text-sm md:text-base cursor-pointer">
-                                    Centered Banner with Badge
-                                </h3>
+                            <div className="flex items-start justify-between mt-4 space-x-4">
+                                <div>
+                                    <h3 className="text-xs font-bold text-black hover:text-indigo-600 sm:text-sm md:text-base">
+                                        <Link href="/components/banners/centered-banner-badge">
+                                            Centered Banner with Badge
+                                            <span className="absolute inset-0" aria-hidden="true"></span>
+                                        </Link>
+                                    </h3>
+
+                                </div>
                             </div>
-                            <div className="absolute left-3 top-3">
-                                <p className="sm:px-3 sm:py-1.5 px-1.5 py-1 text-[8px] sm:text-xs font-bold tracking-wide text-white uppercase bg-gray-900 rounded-full">
-                                    Newly Launched
-                                </p>
+                        </div>
+
+                        {/* Toggle Banner Button with Link */}
+                        <div className="relative group">
+                            <div className="overflow-hidden aspect-w-1 aspect-h-1">
+                                <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="/banners/banner-toggle-link.png" alt="Banner with Toggle Button & Link Image" />
+                            </div>
+                            <div className="flex items-start justify-between mt-4 space-x-4">
+                                <div>
+                                    <h3 className="text-xs font-bold text-black hover:text-indigo-600 sm:text-sm md:text-base">
+                                        <Link href="/components/banners/banner-toggle-link">
+                                            Banner with Toggle Button & Link
+                                            <span className="absolute inset-0" aria-hidden="true"></span>
+                                        </Link>
+                                    </h3>
+
+                                </div>
                             </div>
                         </div>
                     </div>
