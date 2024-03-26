@@ -29,7 +29,7 @@ const Footer = () => {
     return (
         <footer className="pt-2">
             <div className="max-w-screen-xl mx-auto px-6 md:px-8">
-                <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
+                <div className="mt-10 py-10 items-center justify-between sm:flex">
                     <p className="text-black hover:text-indigo-600 font-semibold sm:px-4">© 2024 NextBlend Inc. All rights reserved.</p>
                     <div className="flex items-center gap-x-6 text-black mt-6">
                         <Link href="https://twitter.com/0xgauravv" target="_blank" className="px-2">
