@@ -32,7 +32,6 @@ const ListBannerComponents = () => {
                                             <span className="absolute inset-0" aria-hidden="true"></span>
                                         </Link>
                                     </h3>
-
                                 </div>
                             </div>
                         </div>
@@ -50,7 +49,6 @@ const ListBannerComponents = () => {
                                             <span className="absolute inset-0" aria-hidden="true"></span>
                                         </Link>
                                     </h3>
-
                                 </div>
                             </div>
                         </div>
@@ -68,7 +66,6 @@ const ListBannerComponents = () => {
                                             <span className="absolute inset-0" aria-hidden="true"></span>
                                         </Link>
                                     </h3>
-
                                 </div>
                             </div>
                         </div>
