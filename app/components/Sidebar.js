@@ -26,14 +26,12 @@ const NavLink = ({ ...props }) => {
     );
 };
 
-// Title component
 const Title = ({ children }) => (
     <h3 className='pb-3 px-4 font-medium text-gray-800 md:px-8'>
         {children}
     </h3>
 );
 
-// Sections List
 const SectionsList = ({ items }) => (
     <div className='text-gray-600 px-4 md:px-8'>
         <ul>
@@ -51,7 +49,6 @@ const SectionsList = ({ items }) => (
     </div>
 );
 
-// Search Box component
 const SearchBox = ({ ...props }) => (
     <div className='relative w-full'>
         <svg
@@ -74,14 +71,14 @@ const SearchBox = ({ ...props }) => (
     </div>
 );
 
-
 const Sidebar = () => {
     const componentType = {
         marketingUIComponent: [
             { name: "Banners", href: "/components/banners" },
             { name: "CTA Sections", href: "/components/ctas" },
             { name: "Team Sections", href: "/components/team-sections" },
-            { name: "Contact Sections", href: "/components/contact-sections" }, { name: "Footers", href: "/components/footers" },
+            { name: "Contact Sections", href: "/components/contact-sections" },
+            { name: "Footers", href: "/components/footers" },
             { name: "Logo Grid", href: "/components/logo-grid" },
             { name: "Hero Sections", href: "/components/heroes" },
             { name: "Feature Sections", href: "/components/feature-sections" },
@@ -90,7 +87,6 @@ const Sidebar = () => {
             { name: "Stats", href: "/components/stats" },
             { name: "Newsletter Sections", href: "/components/newsletter-sections" },
         ],
-
         applicationUIComponent: [
             { name: "Inputs", href: "/components/inputs" },
             { name: "Tables", href: "/components/tables" },
@@ -109,32 +105,34 @@ const Sidebar = () => {
         ],
     };
 
-    const [sidebarOpen, setSidebarOpen] = useState(true);
-
-    const toggleSidebar = () => {
-        setSidebarOpen(!sidebarOpen);
-    };
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(min-width: 768px)");
-        const handler = (e) => {
-            setSidebarOpen(e.matches);
-        };
-        mediaQuery.addListener(handler);
-        handler(mediaQuery);
-        return () => {
-            mediaQuery.removeListener(handler);
-        };
+        const savedSidebarState = localStorage.getItem('sidebarOpen');
+        if (savedSidebarState !== null) {
+            setSidebarOpen(JSON.parse(savedSidebarState));
+        }
     }, []);
+
+    const toggleSidebar = () => {
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 300);
+        const newState = !sidebarOpen;
+        setSidebarOpen(newState);
+        localStorage.setItem('sidebarOpen', JSON.stringify(newState));
+    };
 
     return (
         <>
             <nav
-                className={`fixed z-40 top-0 left-0 w-full h-full border-r bg-white space-y-8 overflow-auto sm:w-80 ${sidebarOpen ? 'block' : 'hidden'}`}>
+                className={`fixed z-40 top-0 left-0 w-64 h-full border-r bg-white space-y-8 overflow-auto transition-transform duration-300 ease-in-out ${
+                    sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                }`}>
                 <div className="sticky top-0 space-y-8 bg-white">
                     <div className='h-20 flex items-center px-4 border-b md:px-8'>
                         <Link href='/' className='flex-none'>
-                            <img src="/nextblend.png" width={200} className="mx-auto" />
+                            <img src="/nextblend.png" width={200} className="mx-auto" alt="NextBlend Logo" />
                         </Link>
                     </div>
                     <div className='px-4 md:px-8'>
@@ -142,49 +140,35 @@ const Sidebar = () => {
                     </div>
                 </div>
                 <div className='text-[0.9rem] space-y-6'>
-                    <>
-                        <div>
-                            <Title>Marketing UI</Title>
-                            <SectionsList items={componentType.marketingUIComponent} />
-                        </div>
-                        <div>
-                            <Title>Application UI</Title>
-                            <SectionsList items={componentType.applicationUIComponent} />
-                        </div>
-                    </>
+                    <div>
+                        <Title>Marketing UI</Title>
+                        <SectionsList items={componentType.marketingUIComponent} />
+                    </div>
+                    <div>
+                        <Title>Application UI</Title>
+                        <SectionsList items={componentType.applicationUIComponent} />
+                    </div>
                 </div>
-                <button
-                    className={`absolute top-4 right-4 p-3 bg-gray-900 text-white rounded-full shadow-lg focus:outline-none sm:hidden ${!sidebarOpen ? 'block' : 'hidden'}`}
-                    onClick={toggleSidebar}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        className="h-6 w-6">
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16m-7 6h7"
-                        />
-                    </svg>
-                </button>
             </nav>
             <button
-                className={`hidden sm:block fixed z-50 top-4 right-4 p-3 bg-gray-900 text-white rounded-full shadow-lg focus:outline-none ${!sidebarOpen ? 'block' : 'hidden'}`}
-                onClick={toggleSidebar}>
+                className={`fixed z-50 top-4 p-2 bg-gray-900 text-white rounded-md shadow-lg focus:outline-none transition-all duration-300 ease-in-out
+                    ${sidebarOpen 
+                        ? 'left-[17rem] md:left-auto md:right-4' 
+                        : 'left-4 md:left-auto md:right-4'}
+                    ${isAnimating ? 'scale-90' : 'scale-100'}`}
+                onClick={toggleSidebar}
+                aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="h-6 w-6">
+                    className={`h-6 w-6 transition-transform duration-300 ${sidebarOpen ? 'rotate-90' : 'rotate-0'}`}>
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M4 6h16M4 12h16m-7 6h7"
+                        d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                     />
                 </svg>
             </button>
