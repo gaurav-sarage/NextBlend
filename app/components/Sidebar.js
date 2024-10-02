@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const NavLink = ({ ...props }) => {
     const {
@@ -49,7 +49,7 @@ const SectionsList = ({ items }) => (
     </div>
 );
 
-const SearchBox = ({ ...props }) => (
+const SearchBox = ({ onSearch, searchRef }) => (
     <div className='relative w-full'>
         <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -64,8 +64,10 @@ const SearchBox = ({ ...props }) => (
         </svg>
 
         <input
-            {...props}
-            type='email'
+            ref={searchRef}
+            type='text'
+            placeholder='(Cmd+K or Ctrl+K)'
+            onChange={(e) => onSearch(e.target.value)}
             className='w-full pl-12 pr-3 py-2 bg-white text-sm text-gray-500 bg-transparent outline-none border ring-blue-600 focus:ring-2 shadow-sm rounded-lg duration-200'
         />
     </div>
@@ -87,33 +89,61 @@ const Sidebar = () => {
             { name: "Stats", href: "/components/stats" },
             { name: "Newsletter Sections", href: "/components/newsletter-sections" },
         ],
-        applicationUIComponent: [
-            { name: "Inputs", href: "/components/inputs" },
-            { name: "Tables", href: "/components/tables" },
-            { name: "Paginations", href: "/components/paginations" },
-            { name: "Cards", href: "/components/cards" },
-            { name: "Alerts", href: "/components/alerts" },
-            { name: "Section Headers", href: "/components/section-headers" },
-            { name: "Buttons", href: "/components/buttons" },
-            { name: "Navbars", href: "/components/navbars" },
-            { name: "Select Menus", href: "/components/select-menus" },
-            { name: "Modals", href: "/components/modals" },
-            { name: "Avatars", href: "/components/avatars" },
-            { name: "Authentication", href: "/components/auth" },
-            { name: "Radio Groups", href: "/components/radio-groups" },
-            { name: "Context Menu", href: "/components/context-menu" },
-        ],
+        // applicationUIComponent: [
+        //     { name: "Inputs", href: "/components/inputs" },
+        //     { name: "Tables", href: "/components/tables" },
+        //     { name: "Paginations", href: "/components/paginations" },
+        //     { name: "Cards", href: "/components/cards" },
+        //     { name: "Alerts", href: "/components/alerts" },
+        //     { name: "Section Headers", href: "/components/section-headers" },
+        //     { name: "Buttons", href: "/components/buttons" },
+        //     { name: "Navbars", href: "/components/navbars" },
+        //     { name: "Select Menus", href: "/components/select-menus" },
+        //     { name: "Modals", href: "/components/modals" },
+        //     { name: "Avatars", href: "/components/avatars" },
+        //     { name: "Authentication", href: "/components/auth" },
+        //     { name: "Radio Groups", href: "/components/radio-groups" },
+        //     { name: "Context Menu", href: "/components/context-menu" },
+        // ],
     };
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredComponents, setFilteredComponents] = useState(componentType);
+    const searchRef = useRef(null);
 
     useEffect(() => {
         const savedSidebarState = localStorage.getItem('sidebarOpen');
         if (savedSidebarState !== null) {
             setSidebarOpen(JSON.parse(savedSidebarState));
         }
+
+        const handleKeyDown = (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                searchRef.current.focus();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
     }, []);
+
+    useEffect(() => {
+        const filtered = {
+            marketingUIComponent: componentType.marketingUIComponent.filter(item =>
+                item.name.toLowerCase().includes(searchQuery.toLowerCase())
+            ),
+            // applicationUIComponent: componentType.applicationUIComponent.filter(item =>
+            //     item.name.toLowerCase().includes(searchQuery.toLowerCase())
+            // )
+        };
+        setFilteredComponents(filtered);
+    }, [searchQuery]);
 
     const toggleSidebar = () => {
         setIsAnimating(true);
@@ -121,6 +151,10 @@ const Sidebar = () => {
         const newState = !sidebarOpen;
         setSidebarOpen(newState);
         localStorage.setItem('sidebarOpen', JSON.stringify(newState));
+    };
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
     };
 
     return (
@@ -136,18 +170,18 @@ const Sidebar = () => {
                         </Link>
                     </div>
                     <div className='px-4 md:px-8'>
-                        <SearchBox placeholder='Search...' />
+                        <SearchBox onSearch={handleSearch} searchRef={searchRef} />
                     </div>
                 </div>
                 <div className='text-[0.9rem] space-y-6'>
                     <div>
                         <Title>Marketing UI</Title>
-                        <SectionsList items={componentType.marketingUIComponent} />
+                        <SectionsList items={filteredComponents.marketingUIComponent} />
                     </div>
-                    <div>
+                    {/* <div>
                         <Title>Application UI</Title>
-                        <SectionsList items={componentType.applicationUIComponent} />
-                    </div>
+                        <SectionsList items={filteredComponents.applicationUIComponent} />
+                    </div> */}
                 </div>
             </nav>
             <button

@@ -20,7 +20,7 @@ const Footer = () => {
                 },
                 {
                     href: '/community',
-                    name: 'Communtiy'
+                    name: 'Community'
                 },
             ]
         },

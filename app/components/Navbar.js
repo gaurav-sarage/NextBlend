@@ -16,7 +16,7 @@ const Navbar = () => {
                 const data = await response.json();
                 setStarCount(data.stargazers_count);
             } catch (error) {
-                console.error('Error fetching star count:', error);
+                console.error("Oops! Looks like our star tracker just lost its way in the vast cosmos of GitHub. 🌌✨", error);
             }
         };
 
@@ -26,7 +26,8 @@ const Navbar = () => {
     const navigation = [
         { title: "How it Works", path: "/how-it-works" },
         { title: "Components", path: "/components" },
-        { title: "Pricing", path: "/pricing" },
+        { title: "Docs", path: "/docs" },
+        // { title: "Pricing", path: "/pricing" },
         { title: "Changelog", path: "/changelog" }
     ]
 

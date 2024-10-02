@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Clipboard, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Clipboard, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-// loader component
-const Loader = () => {
+// Loader Component
+const Loader = () => (
   <div className="flex justify-center items-center h-screen">
     <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-blue-500 border-solid"></div>
   </div>
-};
+);
 
 const CopyLinkButton = ({ link }) => {
   const [copied, setCopied] = useState(false);
@@ -25,8 +25,10 @@ const CopyLinkButton = ({ link }) => {
   return (
     <button
       onClick={copyToClipboard}
-      className={`ml-2 p-2 rounded-full transition-all duration-200 ease-in-out shadow-md ${copied ? 'bg-green-500 text-white' : 'text-gray-600 hover:text-blue-500 hover:bg-gray-100'}`}
-      title="Copy Link"
+      className={`ml-2 p-2 rounded-full transition-all duration-200 ease-in-out shadow-md ${
+        copied ? 'bg-green-500 text-white' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+      }`}
+      title="Copy link"
     >
       {copied ? (
         <Check size={16} className="animate-scale-check" />
@@ -94,17 +96,12 @@ const ArrowIcon = ({ direction }) => (
   </svg>
 );
 
-
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange
-}) => (
+const Pagination = ({ currentPage, totalPages, onPageChange }) => (
   <div className="flex justify-center items-center mt-12 space-x-4">
     <button
       onClick={() => onPageChange(currentPage - 1)}
       disabled={currentPage === 1}
-      className="p-2 rounded-full bg-blue-500 text-white disabled:bg-gray-200 disabled:cursor-not-allowed transition-colors duration-200 shadow-lg hover:shadow-xl"
+      className="p-2 rounded-full bg-blue-500 text-white disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 shadow-lg hover:shadow-xl"
     >
       <ArrowIcon direction="left" />
     </button>
@@ -114,50 +111,56 @@ const Pagination = ({
     <button
       onClick={() => onPageChange(currentPage + 1)}
       disabled={currentPage === totalPages}
-      className="p-2 rounded-full bg-blue-500 text-white disabled:bg-gray-200 disabled:cursor-not-allowed transition-colors duration-200 shadow-lg hover:shadow-xl"
+      className="p-2 rounded-full bg-blue-500 text-white disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 shadow-lg hover:shadow-xl"
     >
       <ArrowIcon direction="right" />
     </button>
   </div>
 );
 
-const Changelog = ({
-  changes,
-  itemsPerPage = 10
-}) => {
+const Changelog = ({ changes, itemsPerPage = 25 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(changes.length / itemsPerPage);
 
   const getCurrentPageItems = () => {
-    const startIdx = (currentPage - 1) * itemsPerPage;
-    const endIdx = startIdx + itemsPerPage;
-    return changes.slice(startIdx, endIdx);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return changes.slice(startIndex, endIndex);
   };
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <h2 className="text-4xl font-bold mb-12 text-center text-black hover:text-blue-600">
-        Changelog
-      </h2>
+      <h2 className="text-4xl font-bold mb-12 text-center text-black hover:text-blue-600">Changelog</h2>
       <div className="space-y-8">
-        {getCurrentPageItems().map((item, idx) => (
-          <ChangelogItem
-            key={idx}
-            date={item.date}
-            changes={item.changes}
+        {getCurrentPageItems().map((item, index) => (
+          <ChangelogItem 
+            key={index} 
+            date={item.date} 
+            changes={item.changes} 
             link={item.link}
           />
         ))}
       </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
+      <Pagination 
+        currentPage={currentPage} 
+        totalPages={totalPages} 
         onPageChange={setCurrentPage}
       />
     </div>
   );
 };
 
+const ErrorMessage = ({ error }) => (
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 20 }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}
+    className="text-red-500 bg-red-100 border border-red-400 p-4 rounded-lg shadow-md mt-6 max-w-lg mx-auto text-center"
+  >
+    {error}
+  </motion.div>
+);
 
 export default function ChangelogPage() {
   const [changelogData, setChangelogData] = useState([]);
@@ -169,17 +172,18 @@ export default function ChangelogPage() {
       try {
         const response = await axios.get('https://api.github.com/repos/gaurav-sarage/NextBlend/commits', {
           headers: {
-            Authorization: process.env.GITHUB_TOKEN,
+            Authorization: process.env.GITHUB_TOKEN, // Ensure proper token format
           },
         });
         const formattedCommits = response.data.map(commit => ({
           date: new Date(commit.commit.committer.date).toLocaleDateString(),
           changes: [commit.commit.message],
-          link: commit.html_url
+          link: commit.html_url,
         }));
         setChangelogData(formattedCommits);
       } catch (err) {
-        setError('Failed to fetch commits');
+        console.error(err); // Log error for debugging
+        setError("Yikes! We hit a snag fetching the data. Give it a sec and try again. 🔄");
       } finally {
         setLoading(false);
       }
@@ -189,11 +193,11 @@ export default function ChangelogPage() {
   }, []);
 
   if (loading) return <Loader />;
-  if (error) return <p>(error)</p>
+  if (error) return <ErrorMessage error={error} />;
 
   return (
     <div className="min-h-screen bg-gray-100 py-12">
-      <Changelog changes={changelogData} itemsPerPage={10} />
+      <Changelog changes={changelogData} itemsPerPage={25} />
     </div>
   );
-};
+}
