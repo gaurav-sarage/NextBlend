@@ -26,7 +26,7 @@ const Navbar = () => {
     const navigation = [
         { title: "How it Works", path: "/how-it-works" },
         { title: "Components", path: "/components" },
-        { title: "Docs", path: "/docs" },
+        { title: "Docs", path: "https://nextblend-docs.vercel.app/", newWin: true },
         // { title: "Pricing", path: "/pricing" },
         { title: "Changelog", path: "/changelog" }
     ]
@@ -76,7 +76,10 @@ const Navbar = () => {
                             {
                                 navigation.map((item, idx) => (
                                     <li className="text-black text-lg font-semibold hover:text-indigo-600" key={idx}>
-                                        <Link href={item.path}>
+                                        <Link 
+                                            href={item.path} 
+                                            {...(item.newWin ? { target: "_blank" } : {})}
+                                        >
                                             {item.title}
                                         </Link>
                                     </li>
